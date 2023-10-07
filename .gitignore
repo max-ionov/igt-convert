@@ -27,3 +27,13 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+
+# electron
+electron/*
+!electron/*.js
+!electron/*.css
+!electron/package.json
+!electron/package-lock.json
+!electron/yarn.lock
+!electron/icon512.png
+
