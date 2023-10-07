@@ -38,7 +38,6 @@ function formatEntry(entry, format) {
 
   let res = templates[format]
 
-  console.log(values.value)
   for (let [key, val] of Object.entries(values.value))
     res = res.replace(`%${key}%`, val in entry ? entry[val] : '')
 

@@ -100,6 +100,10 @@ const joinNodeList = (nodeList, sep = '', before = '', after = '') => {
     return Array.from(nodeList).map(item => before + item.textContent + after).join(sep)
 }
 
+const joinNodeListGls = (nodeList, sep = '-', space_repl = '_') => {
+    return Array.from(nodeList).map(item => item.textContent.replaceAll(' ', space_repl)).join(sep)
+}
+
 const parseFlex = (res) => {
     const parsed = {
         type: 'flex',
@@ -126,8 +130,8 @@ const parseFlex = (res) => {
                 entry.word_txt[entry.word_txt.length - 1] = entry.word_txt.at(-1) + content.textContent // let's just pray that punct never comes before a word
             else {
                 entry.word_txt.push(word.querySelector('item[type="txt"]').textContent)
-                entry.gls.push(joinNodeList(word.querySelectorAll('morphemes morph item[type="gls"]'),
-                    '-', '{', '}')
+                entry.gls.push(joinNodeListGls(word.querySelectorAll('morphemes morph item[type="gls"]'),
+                    '-', '~')
                     .replaceAll('=-', '=')
                     .replaceAll('-=', '='))
                 entry.txt.push(joinNodeList(word.querySelectorAll('morphemes morph item[type="txt"]')))
