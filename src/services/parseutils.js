@@ -96,8 +96,8 @@ function xpr2iter (xpr) {
     }
 }
 
-const joinNodeList = (nodeList, sep = '') => {
-    return Array.from(nodeList).map(item => item.textContent).join(sep)
+const joinNodeList = (nodeList, sep = '', before = '', after = '') => {
+    return Array.from(nodeList).map(item => before + item.textContent + after).join(sep)
 }
 
 const parseFlex = (res) => {
@@ -126,7 +126,8 @@ const parseFlex = (res) => {
                 entry.word_txt[entry.word_txt.length - 1] = entry.word_txt.at(-1) + content.textContent // let's just pray that punct never comes before a word
             else {
                 entry.word_txt.push(word.querySelector('item[type="txt"]').textContent)
-                entry.gls.push(joinNodeList(word.querySelectorAll('morphemes morph item[type="gls"]'), '-')
+                entry.gls.push(joinNodeList(word.querySelectorAll('morphemes morph item[type="gls"]'),
+                    '-', '{', '}')
                     .replaceAll('=-', '=')
                     .replaceAll('-=', '='))
                 entry.txt.push(joinNodeList(word.querySelectorAll('morphemes morph item[type="txt"]')))
