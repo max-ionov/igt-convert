@@ -11,7 +11,7 @@ const curRoute = useRoute()
       <p>{{ curRoute.meta.hasOwnProperty("hint") ? curRoute.meta.hint : "" }}</p>
       <nav>
         <RouterLink to="/">Upload</RouterLink>
-<!--        <RouterLink to="/settings">Settings</RouterLink>-->
+        <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
   </header>

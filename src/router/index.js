@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import UploadView from '../views/UploadView.vue'
-import SettingsView from '../views/SettingsView.vue'
+import AboutView from '../views/AboutView.vue'
 import TransformView from '../views/TransformView.vue'
 
 const router = createRouter({
@@ -16,12 +16,12 @@ const router = createRouter({
       }
     },
     {
-      path: '/settings',
-      name: 'settings',
-      component: SettingsView,
+      path: '/about',
+      name: 'about',
+      component: AboutView,
       meta: {
-        title: 'Settings',
-        hint: 'Upload the default list of abbreviations and change other settings'
+        title: 'About',
+        hint: 'Who we are, what this is and how to reach us'
       }
     },
     {
